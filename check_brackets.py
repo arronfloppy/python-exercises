@@ -11,41 +11,50 @@ Examples:
 "{ [ }" should return False """
 
 def check_brackets(value):
-    brackets = "{}[]()"
-    br1 = 0
-    br2 = 0
-    br3 = 0
+    brOpen = "{[("
+    brClose = "}])"
+    brackets = "" + brOpen + brClose
+    checkSubstr = True
 
-    prevbracket = ""
-    
-    for i in range(len(value)):
-   
-        val = value[i]
-        if val not in brackets:
-            continue
-        elif br1 <0 or br2 < 0 or br3 < 0:
+    if not value:
+        return True
+    elif len(value) == 1:
+        if value in brackets:
             return False
-        elif val == brackets[0]:
-            br1 +=1
-        elif val == brackets[2]:
-            br2 +=1
-        elif val == brackets[4]:
-            br3 +=1
-        elif val == brackets[1]:
-            if prevbracket != brackets[0]:
+        else:
+            return True
+    else:
+        idxOpen = -1
+        idxClose = -1
+        openBr = ""
+        closedBr = ""
+        for i in range(len(value)):
+            if value[i] in brOpen:
+                idxOpen = i
+                openBr = value[i]
+                break
+        if  idxOpen == len(value) - 1:
+            return False
+        if idxOpen == -1: 
+            if value.find(brClose[0]) != -1 or value.find(brClose[1]) != -1 or value.find(brClose[2]) != -1:
                 return False
             else:
-                br1 -=1
-        elif val == brackets[3]:
-           if prevbracket != brackets[2]:
-                return False
-           else:
-                br2 -=1
-        elif val == brackets[5]:
-            if prevbracket != brackets[4]:
-                return False
-            else:
-                br3 -=1
-        prevbracket = val
-    return True if br1 == 0 and br2 ==0 and br3 == 0 else False
+                return True
+        
+        # found open bracket, check the closing one
+        idxo = brOpen.find(openBr)
+        closedBr = brClose[idxo]
+        # find closed bracket index
+        idxClose = value.find(closedBr)
+        if idxClose < idxOpen:
+            # not found 
+            return False
+        checkSubstr = check_brackets(value[idxOpen + 1:idxClose ])
+
+        if idxClose < len(value) - 1:
+            checkSubstr &= check_brackets(value[idxClose+1:])
+            
+    return checkSubstr
+
+
 
