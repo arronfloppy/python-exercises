@@ -13,12 +13,14 @@ Examples:
 def check_brackets(value):
     brOpen = "{[("
     brClose = "}])"
-    brackets = "" + brOpen + brClose
+    brackets = brOpen + brClose
     checkSubstr = True
 
+    # empty string return True
     if not value:
         return True
     elif len(value) == 1:
+        # one length string
         if value in brackets:
             return False
         else:
@@ -47,8 +49,9 @@ def check_brackets(value):
         # find closed bracket index
         idxClose = value.rfind(closedBr)
         if idxClose < idxOpen:
-            # not found 
+            # not found or something wrong 
             return False
+        # check the end of the string
         checkSubstr = check_brackets(value[idxOpen + 1:idxClose ])
 
         if idxClose < len(value) - 1:
