@@ -45,7 +45,7 @@ def check_brackets(value):
         idxo = brOpen.find(openBr)
         closedBr = brClose[idxo]
         # find closed bracket index
-        idxClose = value.find(closedBr)
+        idxClose = value.rfind(closedBr)
         if idxClose < idxOpen:
             # not found 
             return False

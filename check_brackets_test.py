@@ -15,3 +15,4 @@ def test_check_brackets():
 	assert check_brackets.check_brackets("{ ] }") == False
 	assert check_brackets.check_brackets("{") == False
 	assert check_brackets.check_brackets("}") == False
+	assert check_brackets.check_brackets(" [ ] ( ) { { } } ") == True
