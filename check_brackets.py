@@ -51,9 +51,10 @@ def check_brackets(value):
         if idxClose < idxOpen:
             # not found or something wrong 
             return False
-        # check the end of the string
+        # check the string between brackets
         checkSubstr = check_brackets(value[idxOpen + 1:idxClose ])
 
+        # check the end of the string
         if idxClose < len(value) - 1:
             checkSubstr &= check_brackets(value[idxClose+1:])
             
