@@ -1,10 +1,10 @@
-""" This is an example of D & C 5 (Divide & COnquer) algorithm.
-    Euclidean algorithmEuclidean's algorithm, is an efficient method 
-    for computing the greatest common divisor (GCD) of two integers """
-
 
 
 def gcd_euclidean(a, b):
+
+    """ This is an example of D & C (Divide & COnquer) algorithm.
+        Euclidean's algorithm, is an efficient method 
+        for computing the greatest common divisor (GCD) of two integers """
 
     if a == 0:
        return b

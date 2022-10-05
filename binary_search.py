@@ -1,5 +1,4 @@
 
-
 def binary_search(list, item):
     """ Binary search function it searches item in list (ordered), returns the index or None
 Complexity is O(log n) where n is the length of the list"""

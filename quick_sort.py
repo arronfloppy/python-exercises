@@ -1,6 +1,6 @@
 
-
 def quick_sort(items):
+    """  quick sort D & C implementation """
     if len(items) < 2:
         return items
     else:
