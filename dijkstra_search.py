@@ -58,7 +58,7 @@ def dijkstra_search(graph,valueFrom, valueTo):
     node= find_cheapest_node()
 
     while node:
-        print("Found node" + str(node))
+        # print("Found node" + str(node))
         cost = costs[node]
         neighbors = graph[node]
         for n in neighbors.keys():
@@ -70,4 +70,4 @@ def dijkstra_search(graph,valueFrom, valueTo):
         node = find_cheapest_node()
 
 
-    return costs[valueTo]
+    return costs.get(valueTo,inf)
