@@ -1,6 +1,6 @@
 from knapsack import *
 
-    # using a dict with key = itemName and value =( itemWeight, itemValue)
+# using a dict with key = itemName and value =( itemWeight, itemValue)
 food = {"chips":(1,1), "baguette":(1,2), "salad":(2,2), "burger":(3,2),
      "hotdog":(4,3), "banana":(6,4) }
 
