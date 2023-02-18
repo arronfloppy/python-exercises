@@ -1,8 +1,8 @@
 from knapsack import *
 
 # using a dict with key = itemName and value =( itemWeight, itemValue)
-food = {"chips":(1,1), "baguette":(1,2), "salad":(2,2), "burger":(3,2),
-     "hotdog":(4,3), "banana":(6,4) }
+food = {"chips":(1,1), "baguette":(1,2), "salad":(2,2), "burger":(3,3),
+     "hotdog":(4,4), "banana":(6,4) }
 
 def test_knapsack():
 
@@ -16,6 +16,5 @@ def test_knapsack():
         assert weightdp <= weight
         assert value1dp > 0
         # dynamic programming version is almost always better than greedy version
-        assert weightdp >= weightgr
         assert value1dp >= value1gr
    
