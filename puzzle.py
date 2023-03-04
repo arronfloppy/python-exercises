@@ -278,6 +278,7 @@ def main():
     print("Enter the first row, cell values separated by spaces,\
  None for empty")
     print("or enter the predefined state name")
+    print("or s to shuffle")
     print("or q to quit.")
     print("Hit <enter> when ready:")
     end = False
