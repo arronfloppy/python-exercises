@@ -153,7 +153,7 @@ class Puzzle:
         printState(self.currentState)
         print("distance is " + str(self.getDistanceToTarget()))
 
-    def findPaths(self, startState, parents, states, depth):
+    def findPaths(self, startState, parents, states, depth: int):
         """ find the best path starting from startState expanding nodes at max depth.
         parents dict contains the result"""
         depth -= 1
