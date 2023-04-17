@@ -16,3 +16,18 @@ def test_check_brackets():
 	assert check_brackets.check_brackets("{") == False
 	assert check_brackets.check_brackets("}") == False
 	assert check_brackets.check_brackets(" [ ] ( ) { { } } ") == True
+
+def test_check_brackets2():
+	assert check_brackets.check_brackets2("Hello") == True
+	assert check_brackets.check_brackets2("He{l}lo") == True
+	assert check_brackets.check_brackets2("H{e{l}l]o") == False
+	assert check_brackets.check_brackets2("He[)(]llo") == False
+	assert check_brackets.check_brackets2("He[)(]llo") == False
+	assert check_brackets.check_brackets2("{ [ ] ( ) }") == True
+	assert check_brackets.check_brackets2("{ [ ( ] ) }") == False
+	assert check_brackets.check_brackets2("{ [ }") == False
+	assert check_brackets.check_brackets2("{ } }") == False
+	assert check_brackets.check_brackets2("{ ] }") == False
+	assert check_brackets.check_brackets2("{") == False
+	assert check_brackets.check_brackets2("}") == False
+	assert check_brackets.check_brackets2(" [ ] ( ) { { } } ") == True

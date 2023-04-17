@@ -59,4 +59,44 @@ def check_brackets(value):
     return checkSubstr
 
 
+def check_brackets2(value):
+    """ Let's say:
+    '(', '{', '[' are called "openers."
+    ')', '}', ']' are called "closers."
+    Write an efficient function that tells us whether or not an input string's openers and closers are properly nested.
+    Examples:
+    "{ [ ] ( ) }" should return True
+    "{ [ ( ] ) }" should return False
+    "{ [ }" should return False """
 
+    brOpen = "{[("
+    brClose = "}])"
+    brackets = brOpen + brClose
+
+    # empty string return True
+    if not value:
+        return True
+    elif len(value) == 1:
+        # one length string
+        if value in brackets:
+            return False
+        else:
+            return True
+    else:
+        bracketsin = ""
+
+        for i in range(len(value)):
+            if value[i] in brClose:
+                closeBrIdx = brClose.index(value[i])
+                openBr = brOpen[closeBrIdx]
+
+                lastBracket = bracketsin[-1] if len(bracketsin) else None
+                if openBr == lastBracket:
+                    bracketsin = bracketsin[0:-1]
+                else: 
+                    return False
+            elif value[i] in brOpen:
+                bracketsin += value[i]
+
+    return True if len(bracketsin) == 0 else False
+                
